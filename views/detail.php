@@ -1,7 +1,7 @@
 <?PHP
     ini_set("display_errors",1);
     
-    include("db.php");
+    include("../db.php");
     $id = $_GET['id']; //on récupère l'ID dans l'URL
 
     $sql = "SELECT * FROM movie_simple
@@ -22,7 +22,7 @@
     <?PHP echo $movie["plot"]; ?>
 </p>  
 <?PHP
-    echo '<img src="img/posters/' .$movie["imdbId"].'.jpg" class="img-poster">';
+    echo '<img src="../img/posters/' .$movie["imdbId"].'.jpg" class="img-poster">';
 ?>
     </main>
     <footer></footer>
