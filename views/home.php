@@ -7,5 +7,5 @@ $title='Accueil';
 </section>
 
 <?php include'./views/poster.php';
-      echo $content;
+
 ?> 
