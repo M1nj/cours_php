@@ -38,37 +38,39 @@
                 <?PHP
                     echo '<img src="../img/posters/' .$movie["imdbId"].'.jpg" class="img-poster">';
                 ?>
-
+<div>
             <h2>Intrigue</h2>
-                <p>
-                    <?PHP echo $movie["plot"]; ?>
-                </p> 
-
-            </br>
-        
+            <p>
+            <?PHP echo $movie["plot"]; ?>
+            </p> 
+</div>      
+<div>  
             <h2>Date de sortie</h2>
                 <p>
                     <?PHP echo $movie["year"]; ?>
                 </p> 
-
-                </br>
-
+</div>
+<br>
+<div>
             <h2>Genre</h2>
                 <p>
                     <?PHP echo $movie["genres"]; ?>
-                </p> 
-
-                </br>
-
+                </p>
+</div> 
+<br>
+<div>
             <h2>Réalisateur</h2>
                 <p>
                     <?PHP echo $movie["directors"]; ?>
-                </p> 
+                </p>
+</div> 
+<br>
+<div>
             <h2>Note</h2>
                 <p>
                     <?PHP echo $movie["rating"]; ?>
                 </p> 
-
+</div>
 
             </div> 
         </main>
