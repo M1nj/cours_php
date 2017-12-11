@@ -38,13 +38,33 @@
                 <?PHP
                     echo '<img src="../img/posters/' .$movie["imdbId"].'.jpg" class="img-poster">';
                 ?>
+
+            <h2>Intrigue</h2>
                 <p>
                     <?PHP echo $movie["plot"]; ?>
                 </p> 
+            <h2>Date de sortie</h2>
+                <p>
+                    <?PHP echo $movie["year"]; ?>
+                </p> 
+            <h2>Genre</h2>
+                <p>
+                    <?PHP echo $movie["genres"]; ?>
+                </p> 
+            <h2>Réalisateur</h2>
+                <p>
+                    <?PHP echo $movie["directors"]; ?>
+                </p> 
+            <h2>Note</h2>
+                <p>
+                    <?PHP echo $movie["rating"]; ?>
+                </p> 
+
+
             </div> 
         </main>
         <div class="autresfilms">
-            <a class="btn btn-primary" href="/index.php" role="button">Voir d'autres films</a>
+            <a class="btn btn-primary" href="../index.php" role="button">Voir d'autres films</a>
         </div>
         <?php include'../layer/footer.php';?>
 
