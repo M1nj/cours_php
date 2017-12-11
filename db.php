@@ -1,7 +1,7 @@
 <?php
  
     //paramètres de connexion en constantes
-    define("DBHOST", "localhost:8888");  //soit localhost, soit l'IP du serveur
+    define("DBHOST", "localhost:8889");  //soit localhost, soit l'IP du serveur
     define("DBUSER", "root");       //utilisateur de la base (différent de PHPmyAdmin)
     define("DBPASS", "root");           //mot de passe
     define("DBNAME", "movies");  //nom de la base de données
