@@ -5,9 +5,12 @@ $title = "Movies!";
 
 $images= glob('img/posters/*.jpg', GLOB_BRACE);
 
-foreach($images as $image){
-    echo $image . '</br>';
-}
+foreach ($images as $image){
+    echo '
+        <li>
+            <img src="' .$image. '" class="posters">
+        </li>';
+    }
 
 
 
