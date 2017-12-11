@@ -7,7 +7,6 @@
       foreach($colors as $color){
           echo $color . '</br>';
       }
-
 ?>
 
 <!doctype html>
