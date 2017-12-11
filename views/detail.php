@@ -34,12 +34,18 @@
             <h1>
                 <?PHP echo $movie["title"]; ?>
             </h1>
-            <p>
-                <?PHP echo $movie["plot"]; ?>
-            </p>  
-            <?PHP
-                echo '<img src="../img/posters/' .$movie["imdbId"].'.jpg" class="img-poster">';
-            ?>
+            <div class="details-movie">
+                <?PHP
+                    echo '<img src="../img/posters/' .$movie["imdbId"].'.jpg" class="img-poster">';
+                ?>
+                <p>
+                    <?PHP echo $movie["plot"]; ?>
+                </p> 
+            </div> 
         </main>
+        <div class="autresfilms">
+            <a class="btn btn-primary" href="/index.php" role="button">Voir d'autres films</a>
+        </div>
         <?php include'../layer/footer.php';?>
+
 </body>
