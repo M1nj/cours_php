@@ -2,6 +2,12 @@
 
   $title = "Movies!";
 
+  $colors = ["jaune", "vert", "bleu"];
+  
+      foreach($colors as $color){
+          echo $color . '</br>';
+      }
+
 ?>
 
 <!doctype html>
@@ -55,8 +61,11 @@
   </div>
 </nav>
 
-
     <h1><?php echo $title; ?></h1>
+
+
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
