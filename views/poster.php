@@ -1,16 +1,19 @@
 <?php 
+    $title = "Movies!";
+?>
 
 
-$title = "Movies!";
-
+<div class="posters">
+<?php
 $images= glob('img/posters/*.jpg', GLOB_BRACE);
-
 foreach ($images as $image){
     echo '
         <li>
-            <img src="' .$image. '" class="posters">
+            <img src="' .$image. '" class="img-poster">
         </li>';
     }
+?>
+</div>
 
 
 
