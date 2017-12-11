@@ -20,4 +20,5 @@
 
  // Affichage de la page avec la vue
      include 'views/layout.php';
+
 ?>
