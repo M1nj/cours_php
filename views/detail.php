@@ -43,14 +43,23 @@
                 <p>
                     <?PHP echo $movie["plot"]; ?>
                 </p> 
+
+            </br>
+        
             <h2>Date de sortie</h2>
                 <p>
                     <?PHP echo $movie["year"]; ?>
                 </p> 
+
+                </br>
+
             <h2>Genre</h2>
                 <p>
                     <?PHP echo $movie["genres"]; ?>
                 </p> 
+
+                </br>
+
             <h2>Réalisateur</h2>
                 <p>
                     <?PHP echo $movie["directors"]; ?>
