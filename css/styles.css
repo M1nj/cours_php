@@ -64,3 +64,8 @@ body {
 .details-movie p{
     margin-left: 20px;
 }
+
+.details{
+    flex-direction: column;
+}
+
