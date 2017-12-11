@@ -29,4 +29,3 @@ foreach ($movies as $movie){
 
 
 
-
