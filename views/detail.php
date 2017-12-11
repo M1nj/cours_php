@@ -44,7 +44,7 @@
             </div> 
         </main>
         <div class="autresfilms">
-            <a class="btn btn-primary" href="/index.php" role="button">Voir d'autres films</a>
+            <a class="btn btn-primary" href="../index.php" role="button">Voir d'autres films</a>
         </div>
         <?php include'../layer/footer.php';?>
 
