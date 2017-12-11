@@ -5,6 +5,10 @@ $title = "Movies!";
 
 $images= glob('img/posters/*.jpg', GLOB_BRACE);
 
+foreach($images as $image){
+    echo $image . '</br>';
+}
+
 
 
   /*tableau pour les images
