@@ -26,7 +26,7 @@ foreach ($movies as $movie){
 </div>
 
 
-
+<!--
   /*tableau pour les images
   $colors = ["jaune", "vert", "bleu"];
   
@@ -52,11 +52,8 @@ foreach ($movies as $movie){
         
             <h2><?php echo $book["title"]; ?></h2>
             <h2><?php echo $book2["title"]; ?></h2>
-            */
-        
+            */-->
 
-
-?>
 
 
 
