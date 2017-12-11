@@ -19,13 +19,16 @@ $movies = $stmt -> fetchAll(); //récuperer toutes les lignes de la requête.
 foreach ($movies as $movie){
     echo '
         <li>
-            <img src="img/posters/' .$movie["imdbId"].'.jpg" class="img-poster">
+            <a href="details.php?id='.$movie["imdbId"].'">
+                <img src="img/posters/' .$movie["imdbId"].'.jpg" class="img-poster">
+            </a>
         </li>';
     }
 ?>
 </div>
-
-<a class="btn btn-primary" id="autresfilms" href="/cours_php" role="button">Voir d'autres films</a>
+<div class="autresfilms">
+    <a class="btn btn-primary" href="index.php" role="button">Voir d'autres films</a>
+</div>
 
 
 
