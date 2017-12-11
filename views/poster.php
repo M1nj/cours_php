@@ -1,8 +1,23 @@
 <?php 
+    $title = "Movies!";
+?>
 
-  $title = "Movies!";
 
-  //tableau pour les images
+<div class="posters">
+<?php
+$images= glob('img/posters/*.jpg', GLOB_BRACE);
+foreach ($images as $image){
+    echo '
+        <li>
+            <img src="' .$image. '" class="img-poster">
+        </li>';
+    }
+?>
+</div>
+
+
+
+  /*tableau pour les images
   $colors = ["jaune", "vert", "bleu"];
   
       foreach($colors as $color){
@@ -24,13 +39,10 @@
         $books = [$book, $book2];
 
 
-
-
-
-        <h1><?php echo $title; ?></h1>
         
             <h2><?php echo $book["title"]; ?></h2>
             <h2><?php echo $book2["title"]; ?></h2>
+            */
         
 
 
