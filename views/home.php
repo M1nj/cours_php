@@ -1,5 +1,5 @@
 <?php
-    $title='Accueil';
+$title='Accueil';
 ?>
 <h1><?php echo $title; ?></h1>
 <section>
