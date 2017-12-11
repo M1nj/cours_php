@@ -25,6 +25,8 @@ foreach ($movies as $movie){
 ?>
 </div>
 
+<a class="btn btn-primary" id="autresfilms" href="/cours_php" role="button">Voir d'autres films</a>
+
 
 
 
