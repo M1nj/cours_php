@@ -1,5 +1,5 @@
 <?php 
-    $title = "Movies!";
+    $title = "Movies !";
 ?>
 
 
