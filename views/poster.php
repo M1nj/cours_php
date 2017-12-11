@@ -10,7 +10,7 @@
 //Association de la base de données
 include ("db.php");
 
-$sql = "SELECT imdbId FROM movie_simple LIMIT 49";
+$sql = "SELECT imdbId FROM movie_simple LIMIT 50";
 $stmt = $dbh -> query($sql); //execution de la requête
 $movies = $stmt -> fetchAll(); //récuperer toutes les lignes de la requête.
 //var_dump($movies); //afficher les lignes
@@ -48,10 +48,6 @@ foreach ($movies as $movie){
 
         $books = [$book, $book2];
 
-
-        
-            <h2><?php echo $book["title"]; ?></h2>
-            <h2><?php echo $book2["title"]; ?></h2>
             */
         
 
