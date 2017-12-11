@@ -11,7 +11,7 @@
     </head>
     
     <body>
-    
+
 <?php include'./layer/header.php';
       echo $content;
 ?>      
