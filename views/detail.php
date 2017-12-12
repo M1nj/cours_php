@@ -37,6 +37,16 @@
             //var_dump($movie);        
         ?>
         
+<?php 
+    $genres = $movie["genres"];
+    $list_genres = explode("/", $genres);
+    //foreach ($list_genres as $list_genre){
+        //echo $list_genre;
+    //}
+
+?>
+
+
         <main>
             <h1>
                 <?PHP echo $movie["title"]; ?> (<?PHP echo $movie["year"]; ?>)
@@ -72,7 +82,12 @@
 <?php include("review.php") ?>
 
             <div class="genre">
-                <a class="btn btn-primary drama" href="../index.php" role="button"><?PHP echo $movie["genres"]; ?></a>
+                <?PHP foreach ($list_genres as $list_genre){
+                    //echo '<a class="btn btn-primary drama" href="../index.php" role="button">';
+                    echo '<a class="btn btn-primary '.strtolower($list_genre).'" href="../index.php" role="button">';
+                    echo $list_genre;
+                    echo '</a>';
+                    }; ?>
             </div>
             </main>
         <div class="autresfilms">
