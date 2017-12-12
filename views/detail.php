@@ -68,6 +68,9 @@
                     </div>
                 </div>
             </div> 
+
+<?php include("review.php") ?>
+
             <div class="genre">
                 <a class="btn btn-primary drama" href="../index.php" role="button"><?PHP echo $movie["genres"]; ?></a>
             </div>

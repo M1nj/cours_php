@@ -1,10 +1,9 @@
 <?php 
-include("../db.php");
 
 //traiter le form
         //récupérer les données
        // print_r($_POST);
-
+if (!empty($_POST)){
         $name = $_POST["username"];
         $title = $_POST["title"];
         $critic = $_POST["critic"];
@@ -56,7 +55,7 @@ include("../db.php");
             //afficher un message de succès
             //redirige
             header("Location: https://lingscars.com");
-        }
+        }}
 ?>
 <!DOCTYPE html>
 <html lang="en">
