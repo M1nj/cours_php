@@ -1,6 +1,5 @@
 <?php
     include("../db.php");
-    include("../layer/header.php");
     ini_set("display_errors",1);
     
     $genre = $_GET['genre']; //on récupère l'ID dans l'URL
@@ -12,10 +11,7 @@
     $stmt -> execute([":genre" => "%".$genre."%",]); //on la remplace ensuite dans $id.
     $movies = $stmt -> fetchAll();
     
-    $title='Détails du film';
-
-    
-    
+    $title='Détails du film'; 
 ?>
 
 <head>
@@ -28,6 +24,9 @@
         <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/styles.css" >
 </head>
+
+<?php include("../layer/header.php"); ?>
+
 <body>
 <?php 
 

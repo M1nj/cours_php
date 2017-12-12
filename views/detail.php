@@ -45,8 +45,6 @@
     //}
 
 ?>
-
-
         <main>
             <h1>
                 <?PHP echo $movie["title"]; ?> (<?PHP echo $movie["year"]; ?>)
