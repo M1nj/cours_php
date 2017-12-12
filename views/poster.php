@@ -2,7 +2,7 @@
     $title = "Movies !";
 ?>
 
-<div class="posters">
+<ul class="posters">
 
 <?php
 
@@ -17,18 +17,16 @@ $movies = $stmt -> fetchAll(); //récuperer toutes les lignes de la requête.
 //$images= glob('img/posters/*.jpg', GLOB_BRACE);
 foreach ($movies as $movie){
     echo '
-        <li>
-
-            <a href="views/detail.php?id='.$movie["id"].'">
-                 <img src="img/posters/' .$movie["imdbId"].'.jpg" class="img-poster" alt="'.$movie["title"].'">
-                 <div class="filmName"><p> '.$movie["title"];' </p></div>
-            </a>
-
-           
-        </li>';
+    <li>
+        <a href="views/detail.php?id='.$movie["id"].'">
+            <img src="img/posters/' .$movie["imdbId"].'.jpg" class="img-poster" alt="'.$movie["title"].'">
+            <div class="filmName"><p> '.$movie["title"];' </p></div>
+        </a>   
+    </li>';
     }
 ?>
-</div>
+
+</ul>
 
 <div class="autresfilms">
     <a class="btn btn-primary" href="index.php" role="button">Voir d'autres films</a>
