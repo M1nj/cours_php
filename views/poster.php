@@ -20,10 +20,17 @@ foreach ($movies as $movie){
         <li>
             <a href="views/detail.php?id='.$movie["id"].'">
                 <img src="img/posters/' .$movie["imdbId"].'.jpg" class="img-poster" alt="'.$movie["title"].'">
+            
+                <div class="filmName">
+                <p> '.$movie["title"];' </p>
+                </div>
+
             </a>
         </li>';
     }
 ?>
+
+
 </div>
 <div class="autresfilms">
     <a class="btn btn-primary" href="index.php" role="button">Voir d'autres films</a>

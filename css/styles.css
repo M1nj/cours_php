@@ -18,6 +18,7 @@ li{
     list-style-type: none; 
 }
 
+
 .posters li .img-poster:hover{
     zoom: 1;
     filter: alpha(opacity=50);
@@ -30,6 +31,12 @@ li{
     transform: rotate(1deg);
     transition-delay: 30ms;
     }
+
+.filmName {
+    width: 200px;
+    height: auto;
+    
+}
 
 footer {
     background-color: #333333;
