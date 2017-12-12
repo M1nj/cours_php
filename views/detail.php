@@ -16,7 +16,7 @@
     
     <body>
 
-        <?php include'../layer/header.php';?>
+        <?php include('../layer/header.php');?>
         <?PHP
             ini_set("display_errors",1);
             include("../db.php");
@@ -84,7 +84,7 @@
             <div class="genre">
                 <?PHP foreach ($list_genres as $list_genre){
                     //echo '<a class="btn btn-primary drama" href="../index.php" role="button">';
-                    echo '<a class="btn btn-primary '.strtolower($list_genre).'" href="../index.php" role="button">';
+                    echo '<a class="btn btn-primary '.strtolower($list_genre).'" href="../views/genre.php?genre='.strtolower($list_genre).'" role="button">';
                     echo $list_genre;
                     echo '</a>';
                     }; ?>
