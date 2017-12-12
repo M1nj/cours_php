@@ -150,9 +150,134 @@ body {
     top: 90px;
 }
 
+.action{
+    background-color: rgb(255, 72, 0);
+    border: none;
+    margin-right: 10px; 
+}
+
+.adventure{
+    background-color: rgb(11, 110, 7);
+    border: none;
+    margin-right: 10px; 
+}
+
+.animation{
+    background-color: rgb(238, 195, 4);
+    color: black;
+    border: none;
+    margin-right: 10px; 
+}
+
+.biography{
+    background-color: rgb(83, 83, 83);
+    border: none;
+    margin-right: 10px; 
+}
+.comedy{
+    background-color: rgb(200, 114, 218);
+    color: black;
+    border: none;
+    margin-right: 10px; 
+}
+
+.crime{
+    background-color: rgb(0, 0, 0);
+    border: none;
+    margin-right: 10px; 
+}
+
 .drama{
     background-color: #FF2828;
     border: none;
+    margin-right: 10px; 
+}
+
+.family{
+    background-color: rgb(221, 118, 0);
+    border: none;
+    margin-right: 10px; 
+}
+
+.fantasy{
+    background-color: rgb(81, 6, 116);
+    border: none;
+    margin-right: 10px; 
+}
+
+.film-noir{
+    background-color: rgb(0, 0, 0);
+    border: none;
+    margin-right: 10px; 
+}
+
+.history{
+    background-color: rgb(75, 145, 78);
+    border: none;
+    margin-right: 10px; 
+}
+
+.horror{
+    background-color: rgb(131, 2, 2);
+    border: none;
+    margin-right: 10px; 
+}
+
+.music{
+    background-color: rgb(64, 132, 196);
+    border: none;
+    margin-right: 10px; 
+}
+
+.musical{
+    background-color: rgb(40, 255, 255);
+    color: black;
+    border: none;
+    margin-right: 10px; 
+}
+
+.mystery{
+    background-color: rgb(110, 93, 114);
+    border: none;
+    margin-right: 10px; 
+}
+
+.romance{
+    background-color: rgb(241, 169, 226);
+    color: black;
+    border: none;
+    margin-right: 10px; 
+}
+
+.sport{
+    background-color: rgb(255, 251, 1);
+    color: black;
+    border: none;
+    margin-right: 10px; 
+}
+
+.thriller{
+    background-color: rgb(82, 40, 40);
+    border: none;
+    margin-right: 10px; 
+}
+
+.war{
+    background-color: rgb(4, 49, 0);
+    border: none;
+    margin-right: 10px; 
+}
+
+.western{
+    background-color: rgb(78, 55, 21);
+    border: none;
+    margin-right: 10px; 
+}
+
+.sci-fi{
+    background-color: rgb(88, 7, 121);
+    border: none;
+    margin-right: 10px; 
 }
 
 .drama:hover{
