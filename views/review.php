@@ -78,7 +78,6 @@ if (!empty($_POST)){
         <label>Votre critique</label>
         <input type="text" name="critique">
 
-        <div><?php echo $error; ?></div>
         <button>Envoyer ma réservation</button>
     </form>
 </body>
