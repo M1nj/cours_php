@@ -39,48 +39,39 @@
         
         <main>
             <h1>
-                <?PHP echo $movie["title"]; ?>
+                <?PHP echo $movie["title"]; ?> (<?PHP echo $movie["year"]; ?>)
             </h1>
             <div class="details-movie">
                 <?PHP
                     echo '<img src="../img/posters/' .$movie["imdbId"].'.jpg" class="img-poster">';
                 ?>
-<div>
-            <h2>Intrigue</h2>
-            <p>
-            <?PHP echo $movie["plot"]; ?>
-            </p> 
-</div>      
-<div>  
-            <h2>Date de sortie</h2>
-                <p>
-                    <?PHP echo $movie["year"]; ?>
-                </p> 
-</div>
-<br>
-<div>
-            <h2>Genre</h2>
-                <p>
-                    <?PHP echo $movie["genres"]; ?>
-                </p>
-</div> 
-<br>
-<div>
-            <h2>Réalisateur</h2>
-                <p>
-                    <?PHP echo $movie["directors"]; ?>
-                </p>
-</div> 
-<br>
-<div>
-            <h2>Note</h2>
-                <p>
-                    <?PHP echo $movie["rating"]; ?>
-                </p> 
-</div>
-
+                <div class="details">
+                    <div class="detail">
+                        <h2>Intrigue</h2>
+                        <p>
+                            <?PHP echo $movie["plot"]; ?>
+                        </p> 
+                    </div> 
+                    <div class="realisateur-note">
+                        <div class="detail">
+                            <h2>Réalisateur</h2>
+                            <p>
+                                <?PHP echo $movie["directors"]; ?>
+                            </p>
+                        </div>
+                        <div class="detail">
+                            <h2>Note</h2>
+                            <p>
+                                <?PHP echo $movie["rating"]; ?>
+                            </p> 
+                        </div>
+                    </div>
+                </div>
             </div> 
-        </main>
+            <div class="genre">
+                <a class="btn btn-primary drama" href="../index.php" role="button"><?PHP echo $movie["genres"]; ?></a>
+            </div>
+            </main>
         <div class="autresfilms">
             <a class="btn btn-primary" href="../index.php" role="button">Voir d'autres films</a>
         </div>

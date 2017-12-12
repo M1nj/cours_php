@@ -57,6 +57,7 @@ body {
     display: flex;
     flex-direction: row;
     margin: 20px 50px 20px 50px;
+    width: 50%;
     color: white;
 }
 
@@ -68,7 +69,27 @@ body {
     flex-direction: column;
 }
 
+.detail{
+    margin: 10px 20px 10px 20px;
+}
 
-.details-movie div{
-    width: 1000px;
+.realisateur-note{
+    flex-direction: row;
+    display: flex;
+}
+
+.genre{
+    position : absolute;
+    right: 50px;
+    top: 90px;
+}
+
+.drama{
+    background-color: #FF2828;
+    border: none;
+}
+
+.drama:hover{
+    background-color: #FF4E4E;
+    border: none;
 }
