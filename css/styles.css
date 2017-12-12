@@ -1,3 +1,5 @@
+
+
 .posters{
     display: flex;
     flex-direction: row;
@@ -15,6 +17,19 @@
 li{
     list-style-type: none; 
 }
+
+.posters li .img-poster:hover{
+    zoom: 1;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    -webkit-transition: opacity .15s ease-in-out;
+    -moz-transition: opacity .15s ease-in-out;
+    -ms-transition: opacity .15s ease-in-out;
+    -o-transition: opacity .15s ease-in-out;
+    transition: opacity .15s ease-in-out;
+    transform: rotate(1deg);
+    transition-delay: 30ms;
+    }
 
 footer {
     background-color: #333333;
