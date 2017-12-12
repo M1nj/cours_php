@@ -23,10 +23,10 @@
             $id = $_GET['id']; //on récupère l'ID dans l'URL
 
             $sql = "SELECT * FROM movie_simple
-                    WHERE id= :id"; //utiliser les deux points lorsque les données peuvent être manipulées par l'utilisateur.
+                    WHERE id = :id"; //utiliser les deux points lorsque les données peuvent être manipulées par l'utilisateur.
 
             $stmt = $dbh -> prepare($sql);
-            $stmt = execute([":id" => $id]); //on la remplace ensuite dans $id.
+            $stmt -> execute([":id" => $id,]); //on la remplace ensuite dans $id.
             $movie = $stmt -> fetch();
 
             if (empty($movie)){
@@ -36,7 +36,7 @@
 
             //var_dump($movie);        
         ?>
-
+        
         <main>
             <h1>
                 <?PHP echo $movie["title"]; ?>
