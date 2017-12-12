@@ -20,6 +20,16 @@
     color: white;
 }
 
+.btn.btn-outline-success.my-2.my-sm-0{
+    color: white;
+    border-color: white;
+}
+.btn.btn-outline-success.my-2.my-sm-0:hover{
+    color: white;
+    background-color: #FF715A;
+    border-color: #FF715A;
+}
+
 .posters{
     display: flex;
     flex-direction: row;
