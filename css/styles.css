@@ -6,7 +6,10 @@
     padding: 20px 50px 20px 50px;
     justify-content: space-between;
     flex-wrap: wrap;
+
 }
+
+
 
 .img-poster{
     width: 200px;
@@ -19,7 +22,7 @@ li{
 }
 
 
-.posters li .img-poster:hover{
+.posters li:hover{
     zoom: 1;
     filter: alpha(opacity=50);
     opacity: 0.5;
@@ -30,12 +33,36 @@ li{
     transition: opacity .15s ease-in-out;
     transform: rotate(1deg);
     transition-delay: 30ms;
-    }
+}
+
+.posters li .img-poster:hover{
+
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+
+}
+
+.posters a {
+    position: relative;
+}
 
 .filmName {
+    position: absolute;
     width: 200px;
-    height: auto;
-    
+    height: 300px; 
+    top: -150px;
+    display: none;
+}
+
+.posters li:hover .filmName {
+    display: block;
+}
+
+.filmName p {
+    color: white; 
+    padding-top: 140px;
+    margin: 0;
+    text-align: center;
 }
 
 footer {
