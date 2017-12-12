@@ -56,16 +56,19 @@ body {
 .details-movie{
     display: flex;
     flex-direction: row;
-    width: 50%;
     margin: 20px 50px 20px 50px;
     color: white;
 }
 
-.details-movie p{
-    margin-left: 20px;
+.details-movie img{
+    margin-right: 20px;
 }
 
 .details{
     flex-direction: column;
 }
 
+
+.details-movie div{
+    width: 1000px;
+}
