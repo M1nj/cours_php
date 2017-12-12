@@ -30,7 +30,7 @@
             $movie = $stmt -> fetch();
 
             if (empty($movie)){
-                include("../views/404.php");
+                include("404.php");
                 die();
                 } //Si le film n'a pas été trouvé, alors afficher une page 404.
 
