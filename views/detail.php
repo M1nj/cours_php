@@ -23,10 +23,17 @@
             $id = $_GET['id']; //on récupère l'ID dans l'URL
 
             $sql = "SELECT * FROM movie_simple
-                    WHERE id= ".$id;
+                    WHERE id= :id"; //utiliser les deux points lorsque les données peuvent être manipulées par l'utilisateur.
 
-            $stmt = $dbh -> query($sql);
+            $stmt = $dbh -> prepare($sql);
+            $stmt = execute([":id" => $id]); //on la remplace ensuite dans $id.
             $movie = $stmt -> fetch();
+
+            if (empty($movie)){
+                include("../views/404.php");
+                die();
+                } //Si le film n'a pas été trouvé, alors afficher une page 404.
+
             //var_dump($movie);        
         ?>
 
