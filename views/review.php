@@ -59,6 +59,13 @@ if (!empty($_POST)){
             //redirige
             //header("Location: https://lingscars.com");
         }}
+
+$sql = "SELECT * FROM review
+        WHERE idMovie = :idMovie";
+$stmt = $dbh -> prepare($sql);
+$stmt -> execute([":idMovie" => $idMovie]);
+$critics = $stmt -> FetchAll();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,6 +75,7 @@ if (!empty($_POST)){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Réservation</title>
 </head>
+
 <body>
     <!-- afficher le formulaire --> 
     <form method="post">
@@ -79,9 +87,17 @@ if (!empty($_POST)){
         <input type="text" name="title">
 
         <label>Votre critique</label>
-        <input type="text" name="critic" size="100">
+        <input type="text" name="critic" size="80">
 
         <button>Poster ma critique</button>
     </form>
+
+<?php foreach ($critics as $critic){
+    echo '<div>'.$critic["username"].'</div>';
+    echo '<div>'.$critic["title"].'</div>';
+    echo '<div>'.$critic["critic"].'</div>';
+}
+?>
+
 </body>
 </html>
