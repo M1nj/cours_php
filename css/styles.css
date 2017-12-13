@@ -42,6 +42,10 @@
     color: #ff715a;
 }
 
+.navbar-light .navbar-nav .nav-link:active {
+    color: #ff715a;
+}
+
 
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
     color: white;
@@ -465,4 +469,9 @@ body {
 .drama:hover{
     background-color: #FF4E4E;
     border: none;
+}
+
+/*formulaires*/
+.form {
+    color: white;
 }
