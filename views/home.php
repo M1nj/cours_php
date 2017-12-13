@@ -24,4 +24,4 @@ foreach ($genres as $list_genre){
     echo '</div>';
 ?>
 
-<<?php include("poster.php"); ?>
+<?php include("poster.php"); ?>

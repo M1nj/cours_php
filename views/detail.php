@@ -43,7 +43,6 @@
     //foreach ($list_genres as $list_genre){
         //echo $list_genre;
     //}
-
 ?>
         <main>
             <h1>
