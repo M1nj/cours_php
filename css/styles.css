@@ -48,17 +48,19 @@
     padding: 20px 50px 20px 50px;
     justify-content: space-between;
     flex-wrap: wrap;
+    transition: transform .30s ease-in-out;
 
 }
 
 .img-poster{
-    width: 200px;
-    height: 300px;
+    width: 300px;
+    height: 400px;
     margin-bottom: 20px;
 }
 
 li{
-    list-style-type: none; 
+    list-style-type: none;
+    transition: transform .30s ease-in-out; 
 }
 
 .posters li:hover{
@@ -70,6 +72,7 @@ li{
     transition: opacity .15s ease-in-out;
     transform: rotate(1deg);
     transition-delay: 30ms;
+    transition: transform .30s ease-in-out;
 }
 
 .posters li:hover .img-poster{
@@ -84,8 +87,8 @@ li{
 
 .filmName {
     position: absolute;
-    width: 200px;
-    height: 300px; 
+    width: 300px;
+    height: 400px; 
     top: -150px;
     display: none;
     padding: 10px;
@@ -437,4 +440,18 @@ body {
 .drama:hover{
     background-color: #FF4E4E;
     border: none;
+}
+
+div.liste_genre{
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+}
+div.liste_genre > a{
+    width: 130px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: lightgrey;
+    color: black;
 }
