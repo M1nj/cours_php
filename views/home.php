@@ -24,4 +24,73 @@ foreach ($genres as $list_genre){
     echo '</div>';
 ?>
 
-<<?php include("poster.php"); ?>
+<ul class="posters">
+<?php
+
+$search = $_GET['search'];
+if (isset($search)){
+    
+$sql ="SELECT * FROM movie_simple
+WHERE title LIKE :search";
+        
+$stmt = $dbh -> prepare($sql);
+$stmt -> execute([':search' => "%".$search."%"]);
+$titles = $stmt -> fetchAll();
+
+foreach ($titles as $title){
+    echo '
+    <li>
+
+        <a href="../views/detail.php?id='.$title["id"].'">
+             <img src="../img/posters/' .$title["imdbId"].'.jpg" class="img-poster" alt="'.$title["title"].'">
+             <div class="filmName"><p> '.$title["title"];' </p></div>
+        </a>
+
+       
+    </li>';
+}
+
+$sql ="SELECT * FROM movie_simple
+WHERE actors LIKE :search";
+        
+$stmt = $dbh -> prepare($sql);
+$stmt -> execute([':search' => "%".$search."%"]);
+$titles = $stmt -> fetchAll();
+
+foreach ($titles as $title){
+    echo '
+    <li>
+
+        <a href="../views/detail.php?id='.$title["id"].'">
+             <img src="../img/posters/' .$title["imdbId"].'.jpg" class="img-poster" alt="'.$title["title"].'">
+             <div class="filmName"><p> '.$title["title"];' </p></div>
+        </a>
+
+       
+    </li>';
+    }
+
+$sql ="SELECT * FROM movie_simple
+WHERE directors LIKE :search";
+        
+$stmt = $dbh -> prepare($sql);
+$stmt -> execute([':search' => "%".$search."%"]);
+$titles = $stmt -> fetchAll();
+
+foreach ($titles as $title){
+    echo '
+    <li>
+
+        <a href="../views/detail.php?id='.$title["id"].'">
+             <img src="../img/posters/' .$title["imdbId"].'.jpg" class="img-poster" alt="'.$title["title"].'">
+             <div class="filmName"><p> '.$title["title"];' </p></div>
+        </a>
+
+       
+    </li>';
+    }
+}
+
+?>
+</ul>
+<?php include("poster.php"); ?>
