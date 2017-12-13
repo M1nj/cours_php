@@ -1,21 +1,18 @@
 <?php
     include("../db.php");
-    include("../layer/header.php");
     ini_set("display_errors",1);
     
     $genre = $_GET['genre']; //on récupère l'ID dans l'URL
     
     $sql = "SELECT * FROM movie_simple
-            WHERE genres LIKE :genre"; //utiliser les deux points lorsque les données peuvent être manipulées par l'utilisateur.
+            WHERE genres LIKE :genre 
+            LIMIT 50"; //utiliser les deux points lorsque les données peuvent être manipulées par l'utilisateur.
     
     $stmt = $dbh -> prepare($sql);
-    $stmt -> execute([":genre" => "%".$genre."%",]); //on la remplace ensuite dans $id.
+    $stmt -> execute([":genre" => "%".$genre."%",]); //on la remplace ensuite dans $genre.
     $movies = $stmt -> fetchAll();
     
-    $title='Détails du film';
-
-    
-    
+    $title='Détails du film'; 
 ?>
 
 <head>
@@ -28,9 +25,31 @@
         <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/styles.css" >
 </head>
+
+<?php include("../layer/header.php"); ?>
+
 <body>
 <?php 
 
+$sql = "SELECT * FROM genre ORDER BY name";
+$stmt = $dbh -> query($sql); //execution de la requête
+$genres = $stmt -> fetchAll(); //récuperer toutes les lignes de la requête.
+//var_dump($movies); //afficher les lignes
+
+    echo '<div class=liste_genre>';
+foreach ($genres as $list_genre){
+    //echo '<a class="btn btn-primary drama" href="../index.php" role="button">';
+    echo '<a class="btn btn-primary '.strtolower($list_genre["name"]).'" href="../views/genre.php?genre='.strtolower($list_genre["name"]).'" role="button">';
+    echo $list_genre["name"];
+    echo '</a>';
+    }
+    echo '</div>';
+
+
+echo '<h1>'.strtoupper($genre).'</h1>';
+?>
+<ul class="posters">
+<?php
 foreach ($movies as $movie){
     echo '
         <li>
@@ -45,6 +64,7 @@ foreach ($movies as $movie){
     }
 
 ?>
+</ul>
 </body>
 
 <?php include("..layer/footer.php"); ?>

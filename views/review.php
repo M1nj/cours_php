@@ -3,10 +3,13 @@
 //traiter le form
         //récupérer les données
        // print_r($_POST);
+       $idMovie = $_GET["id"];
+
 if (!empty($_POST)){
         $name = $_POST["username"];
         $title = $_POST["title"];
         $critic = $_POST["critic"];
+        
 
         $error = "";
 
@@ -42,20 +45,27 @@ if (!empty($_POST)){
             */
             $sql = "INSERT INTO review 
                     VALUES (NULL, :title, :username, 
-                    :critic, NOW())";
+                    :critic, NOW(),:idMovie)";
 
             $stmt = $dbh->prepare($sql);
             $stmt -> execute([
                 ":title" => $title,
                 ":username" => $name, 
                 ":critic" =>$critic,
-    
+                ":idMovie" => $idMovie,
             ]);
 
             //afficher un message de succès
             //redirige
-            header("Location: https://lingscars.com");
+            //header("Location: https://lingscars.com");
         }}
+
+$sql = "SELECT * FROM review
+        WHERE idMovie = :idMovie";
+$stmt = $dbh -> prepare($sql);
+$stmt -> execute([":idMovie" => $idMovie]);
+$critics = $stmt -> FetchAll();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,20 +75,29 @@ if (!empty($_POST)){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Réservation</title>
 </head>
+
 <body>
     <!-- afficher le formulaire --> 
     <form method="post">
 
         <label>Votre username</label>
-        <input type="username" name="Pseudo">
+        <input type="username" name="username">
 
         <label>Titre de votre critique</label>
         <input type="text" name="title">
 
         <label>Votre critique</label>
-        <input type="text" name="critique">
+        <input type="text" name="critic" size="80">
 
-        <button>Envoyer ma réservation</button>
+        <button>Poster ma critique</button>
     </form>
+
+<?php foreach ($critics as $critic){
+    echo '<div>'.$critic["username"].'</div>';
+    echo '<div>'.$critic["title"].'</div>';
+    echo '<div>'.$critic["critic"].'</div>';
+}
+?>
+
 </body>
 </html>
