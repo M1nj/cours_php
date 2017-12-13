@@ -39,7 +39,11 @@ $genres = $stmt -> fetchAll(); //récuperer toutes les lignes de la requête.
     echo '<div class=liste_genre>';
 foreach ($genres as $list_genre){
     //echo '<a class="btn btn-primary drama" href="../index.php" role="button">';
-    echo '<a class="btn btn-primary '.strtolower($list_genre["name"]).'" href="../views/genre.php?genre='.strtolower($list_genre["name"]).'" role="button">';
+    echo '<a class="btn btn-primary '.strtolower($list_genre["name"]);
+    if (strtolower($genre) == strtolower($list_genre["name"])){
+        echo " active";
+    }
+    echo '" href="../views/genre.php?genre='.strtolower($list_genre["name"]).'" role="button">';
     echo $list_genre["name"];
     echo '</a>';
     }
@@ -67,4 +71,4 @@ foreach ($movies as $movie){
 </ul>
 </body>
 
-<?php include("..layer/footer.php"); ?>
+<?php include("../layer/footer.php"); ?>
