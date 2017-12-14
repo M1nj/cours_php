@@ -16,7 +16,6 @@
 
       //traiter le form
     if (!empty($_POST)){
-        echo "hhhhh";
             $pseudo = $_POST["pseudo"];
             $password = $_POST["password"];
             $confirm_password = $_POST["confirm_password"];

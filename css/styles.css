@@ -1,3 +1,5 @@
+/*navbar + logo*/
+
 .navbar {
     width: 100%;
     height: 80px;
@@ -491,4 +493,22 @@ div.liste_genre > a{
     margin-bottom: 10px;
     background-color: lightgrey;
     color: black;
+}
+
+/*Formulaire login*/
+.formLogin {
+    color: white;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    /*background: #393F45;*/
+}
+
+.mdpLogin {
+    padding-top: 20px;
+}
+
+.boutonForm2 {
+    padding-top: 20px;
 }
