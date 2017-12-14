@@ -16,12 +16,73 @@ $genres = $stmt -> fetchAll(); //récuperer toutes les lignes de la requête.
 
     echo '<div class=liste_genre>';
 foreach ($genres as $list_genre){
-    //echo '<a class="btn btn-primary drama" href="../index.php" role="button">';
-    echo '<a class="btn btn-primary '.strtolower($list_genre["name"]).'" href="../views/genre.php?genre='.strtolower($list_genre["name"]).'" role="button">';
-    echo $list_genre["name"];
-    echo '</a>';
+        echo '<a class="btn btn-primary '.strtolower($list_genre["name"]).'" href="../views/genre.php?genre='.strtolower($list_genre["name"]).'" role="button">';
+        echo $list_genre["name"];
+        echo '</a>';
     }
     echo '</div>';
 ?>
+
+<ul class="posters">
+<?php
+
+    $search = $_GET['search'];
+
+    if (isset($search)){
+        
+        $sql ="SELECT * FROM movie_simple
+        WHERE title LIKE :search";
+                
+        $stmt = $dbh -> prepare($sql);
+        $stmt -> execute([':search' => "%".$search."%"]);
+        $titles = $stmt -> fetchAll();
+
+        foreach ($titles as $title){
+            echo '
+            <li>
+                <a href="../views/detail.php?id='.$title["id"].'">
+                    <img src="../img/posters/' .$title["imdbId"].'.jpg" class="img-poster" alt="'.$title["title"].'">
+                    <div class="filmName"><p> '.$title["title"];' </p></div>
+                </a>
+            </li>';
+        }
+
+        $sql ="SELECT * FROM movie_simple
+        WHERE actors LIKE :search";
+                
+        $stmt = $dbh -> prepare($sql);
+        $stmt -> execute([':search' => "%".$search."%"]);
+        $titles = $stmt -> fetchAll();
+
+        foreach ($titles as $title){
+            echo '
+            <li>
+                <a href="../views/detail.php?id='.$title["id"].'">
+                    <img src="../img/posters/' .$title["imdbId"].'.jpg" class="img-poster" alt="'.$title["title"].'">
+                    <div class="filmName"><p> '.$title["title"];' </p></div>
+                </a>
+            </li>';
+            }
+
+        $sql ="SELECT * FROM movie_simple
+        WHERE directors LIKE :search";
+                
+        $stmt = $dbh -> prepare($sql);
+        $stmt -> execute([':search' => "%".$search."%"]);
+        $titles = $stmt -> fetchAll();
+
+        foreach ($titles as $title){
+            echo '
+            <li>
+                <a href="../views/detail.php?id='.$title["id"].'">
+                    <img src="../img/posters/' .$title["imdbId"].'.jpg" class="img-poster" alt="'.$title["title"].'">
+                    <div class="filmName"><p> '.$title["title"];' </p></div>
+                </a>
+            </li>';
+            }
+}
+?>
+
+</ul>
 
 <?php include("poster.php"); ?>

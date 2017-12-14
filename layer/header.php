@@ -44,7 +44,7 @@
         </ul>
 
         <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un film" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un film" method="GET" name="search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
         </form>
     </div>

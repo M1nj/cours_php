@@ -9,7 +9,6 @@ if (!empty($_POST)){
         $name = $_POST["username"];
         $title = $_POST["title"];
         $critic = $_POST["critic"];
-        
 
         $error = "";
 
