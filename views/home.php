@@ -26,9 +26,9 @@ foreach ($genres as $list_genre){
 <ul class="posters">
 <?php
 
-    $search = $_GET['search'];
 
-    if (isset($search)){
+    if (!empty($_GET["search"])){
+        $search = $_GET['search'];
         
         $sql ="SELECT * FROM movie_simple
         WHERE title LIKE :search";

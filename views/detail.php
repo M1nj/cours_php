@@ -76,6 +76,20 @@
                 </div>
             </div> 
 
+<?php 
+    $trailerId = $_GET["id"];
+    
+    $sql = "SELECT * FROM movie_simple
+    WHERE id = :trailerId";
+
+    $stmt = $dbh -> prepare($sql);
+    $stmt -> execute([':trailerId' => $trailerId]);
+    $trailer = $stmt -> fetch();
+
+    echo '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$trailer["trailerId"].'" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>';
+?>
+
+
 <?php include("review.php") ?>
 
             <div class="genre">
