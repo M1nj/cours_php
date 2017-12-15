@@ -3,9 +3,7 @@ $title='Accueil';
 ?>
 
 <div class="accueil">
-    <img src="img/cinema.png" alt="image d'accueil">
-
-
+    <img src="img/popcorn.png" alt="image d'accueil">
 </div>
 
 <h1><?php echo $title; ?></h1>

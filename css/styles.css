@@ -11,6 +11,16 @@
     margin: 0;
 }
 
+.btn-primary{
+    background-color: #fecc00;
+    border-color: #fecc00;
+}
+
+.btn-primary:hover{
+    background-color: #ffe684;
+    border-color: #ffe684;
+}
+
 .navbar-brand {
     width: 14%;
     height: 50px;
@@ -41,11 +51,11 @@
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-    color: #ff715a;
+    color: #ffe684;
 }
 
 .navbar-light .navbar-nav .nav-link:active {
-    color: #ff715a;
+    color: #ffe484;
 }
 
 
