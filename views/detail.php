@@ -87,9 +87,9 @@
     $stmt -> execute([':trailerId' => $trailerId]);
     $trailer = $stmt -> fetch();
 
-    echo '<div class="video">
+    echo '
     <iframe width="560" height="315" src="https://www.youtube.com/embed/'.$trailer["trailerId"].'" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-        </div>';
+        ';
 ?>
 
 

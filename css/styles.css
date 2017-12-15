@@ -551,8 +551,8 @@ border: 1px solid #ffe484;
 .btn-primary:not([disabled]):not(.disabled).active, .btn-primary:not([disabled]):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
     background-color:#fecc00;
     color: black;
+    box-shadow: none;
 }
-
 h4.card-title{
     color:#fecc00;
 }
@@ -568,3 +568,23 @@ form.post_critique >label{
 form.post_critique > input{
     padding-right: 30px;
 }
+div.send_critic{
+    margin-left: 50px;
+border: 1px white solid;
+}
+div.card{
+    color:black;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+textarea {
+    width: 40%;
+    height: 150px;
+  }
+button.btn.btn-primary{
+    margin-left: 10.3%;
+}
+
