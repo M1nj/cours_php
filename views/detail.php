@@ -17,8 +17,9 @@
     
     <body>
 
-        <?php include('../layer/header.php');?>
-        <?PHP
+        <?php 
+            include('../layer/header.php');
+        
             ini_set("display_errors",1);
             include("../db.php");
             $id = $_GET['id']; //on récupère l'ID dans l'URL
@@ -35,74 +36,83 @@
                 die();
                 } //Si le film n'a pas été trouvé, alors afficher une page 404.
 
-            //var_dump($movie);        
+            //var_dump($movie);      
+
+            $genres = $movie["genres"];
+            $list_genres = explode("/", $genres);
+             //foreach ($list_genres as $list_genre){
+                //echo $list_genre;
+            //}
         ?>
-        
-<?php 
-    $genres = $movie["genres"];
-    $list_genres = explode("/", $genres);
-    //foreach ($list_genres as $list_genre){
-        //echo $list_genre;
-    //}
-?>
+
         <main>
             <h1>
                 <?PHP echo $movie["title"]; ?> (<?PHP echo $movie["year"]; ?>)
             </h1>
-            <div class="details-movie">
-                <?PHP
-                    echo '<img src="../img/posters/' .$movie["imdbId"].'.jpg" class="img-poster">';
-                ?>
-                <div class="details">
-                    <div class="detail">
-                        <h2>Intrigue</h2>
-                        <p>
-                            <?PHP echo $movie["plot"]; ?>
-                        </p> 
-                    </div> 
-                    <div class="realisateur-note">
+            <div class="movie">
+                <div class="details-movie">
+                    <?PHP
+                        echo '<img src="../img/posters/' .$movie["imdbId"].'.jpg" class="img-poster">';
+                    ?>
+                    <div class="details">
                         <div class="detail">
-                            <h2>Réalisateur</h2>
+                            <h2>Intrigue</h2>
                             <p>
-                                <?PHP echo $movie["directors"]; ?>
-                            </p>
-                        </div>
-                        <div class="detail">
-                            <h2>Note</h2>
-                            <p>
-                                <?PHP echo $movie["rating"]; ?>
+                                <?PHP echo $movie["plot"]; ?>
                             </p> 
+                        </div> 
+                        <div class="realisateur-note">
+                            <div class="detail">
+                                <h2>Réalisateur</h2>
+                                <p>
+                                    <?PHP echo $movie["directors"]; ?>
+                                </p>
+                            </div>
+                            <div class="detail">
+                                <h2>Note</h2>
+                                <p>
+                                    <?PHP echo $movie["rating"]; ?>
+                                </p> 
+                            </div>
+                        </div>
+                        <div class="whatchlist">
+                            <a class="btn btn-primary" href="../index.php" role="button">Ajouter à la Watchlist</a>
                         </div>
                     </div>
+                </div> 
+                <div class="genre">
+                    <?PHP foreach ($list_genres as $list_genre){
+                        //echo '<a class="btn btn-primary drama" href="../index.php" role="button">';
+                        echo '<a class="btn btn-primary '.strtolower($list_genre).'" href="../views/genre.php?genre='.strtolower($list_genre).'" role="button">';
+                        echo $list_genre;
+                        echo '</a>';
+                        }; ?>
+
+                    <div>
+                        <?php 
+                            $trailerId = $_GET["id"];
+                            
+                            $sql = "SELECT * FROM movie_simple
+                            WHERE id = :trailerId";
+
+                            $stmt = $dbh -> prepare($sql);
+                            $stmt -> execute([':trailerId' => $trailerId]);
+                            $trailer = $stmt -> fetch();
+
+                            echo '<div class="video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/'.$trailer["trailerId"].'" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                                </div>';
+                        ?>
+                    </div>
                 </div>
-            </div> 
+            </div>
 
-<?php 
-    $trailerId = $_GET["id"];
-    
-    $sql = "SELECT * FROM movie_simple
-    WHERE id = :trailerId";
-
-    $stmt = $dbh -> prepare($sql);
-    $stmt -> execute([':trailerId' => $trailerId]);
-    $trailer = $stmt -> fetch();
-
-    echo '<div class="video">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/'.$trailer["trailerId"].'" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-        </div>';
-?>
+            
 
 
 <?php include("review.php") ?>
 
-            <div class="genre">
-                <?PHP foreach ($list_genres as $list_genre){
-                    //echo '<a class="btn btn-primary drama" href="../index.php" role="button">';
-                    echo '<a class="btn btn-primary '.strtolower($list_genre).'" href="../views/genre.php?genre='.strtolower($list_genre).'" role="button">';
-                    echo $list_genre;
-                    echo '</a>';
-                    }; ?>
-            </div>
+        
             </main>
         <div class="autresfilms">
             <a class="btn btn-primary" href="../index.php" role="button">Voir d'autres films</a>
