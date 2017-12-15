@@ -29,27 +29,31 @@
 		<?php
 			
 		//Association de la base de données
-		$id = $_POST['id']; 
+		
 		$userid = $_SESSION['id'];
 
 		$sql = "SELECT * FROM watchlist
-				WHERE movie = :id AND user= :userid";
+				WHERE user= :userid";
 		$stmt = $dbh -> prepare($sql);
-		$stmt -> execute([":id" => $id, ":userid" => $userid]); //on la remplace ensuite dans $id.
-		$watchlist = $stmt -> fetchAll();
+		$stmt -> execute([":userid" => $userid]); //on la remplace ensuite dans $id.
+		$watchlist = $stmt -> fetchAll(PDO::FETCH_COLUMN, "movie");
+
+		$IdMovie = implode(",",$watchlist);
 
 		if (!empty($watchlist)){
 			$sql = "SELECT imdbId, id, title FROM movie_simple 
+			WHERE id IN ($IdMovie)
 			ORDER BY RAND() LIMIT 50";
 			$stmt = $dbh -> query($sql); //execution de la requête
 			$movies = $stmt -> fetchAll();
-			echo
+			foreach ($movies as $movie){
+				echo
 			'<li class="test">
 				<a href="views/detail.php?id='.$movie["id"].'">
-					<img src="img/posters/' .$movie["imdbId"].'.jpg" class="img-poster" alt="'.$movie["title"].'">
+					<img src="../img/posters/' .$movie["imdbId"].'.jpg" class="img-poster" alt="'.$movie["title"].'">
 					<div class="filmName"><p> '.$movie["title"];' </p></div>
 				</a>   
-			</li>';
+			</li>';}
 			}
 		else{
 			echo '<p>
@@ -57,11 +61,14 @@
 				</p>';
 
 		}
-		include('../layer/footer.php');
 		?>
+
+
 		<div class="autresfilms">
-			<a class="btn btn-primary" href="index.php" role="button">Voir d'autres films</a>
+			<a class="btn btn-primary" href="../index.php" role="button">Voir d'autres films</a>
 		</div>
+
+		<?php include('../layer/footer.php');?>
 	</body>
 </html>
 
