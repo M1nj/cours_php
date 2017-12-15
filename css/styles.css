@@ -188,6 +188,7 @@ h1{
 
 body {
     background-color: #272727;
+    color: white;
 }
 
 .details-movie{
@@ -554,4 +555,16 @@ border: 1px solid #ffe484;
 
 h4.card-title{
     color:#fecc00;
+}
+iframe{
+    flex-direction: column;
+}
+form.post_critique{
+    margin: 30px;
+}
+form.post_critique >label{
+    margin: 30px;
+}
+form.post_critique > input{
+    padding-right: 30px;
 }
