@@ -3,36 +3,38 @@
 //traiter le form
         //récupérer les données
        // print_r($_POST);
-                            if (!empty($_POST)){
-                                    $name = $_POST["username"];
-                                    $title = $_POST["title"];
-                                    $critic = $_POST["critic"];
+       $idMovie = $_GET["id"];
 
-                                    $error = "";
+if (!empty($_POST)){
+        $name = $_POST["username"];
+        $title = $_POST["title"];
+        $critic = $_POST["critic"];
 
-                                    //valide les données
-                                        //nom renseigné ?
-                                    if (empty($name)){
-                                        $error = "veuillez renseigner votre username";
-                                    }
+        $error = "";
 
-                                    if (empty($title)){
-                                        $error = "veuillez renseigner le titre de votre critique";
-                                    }
+        //valide les données
+            //nom renseigné ?
+        if (empty($name)){
+            $error = "veuillez renseigner votre username";
+        }
 
-                                    if (empty($critic)){
-                                        $error = "veuillez renseigner votre critique";
-                                    }
-                                        
-                                    /*   //date dans le futur ? 
-                                    if ($date < date("Y-m-d")){
-                                        $error = "blabla.";
-                                    }  */
-                                    
-                                        //téléphone ?
-                                        //nb de personne ?
+        if (empty($title)){
+            $error = "veuillez renseigner le titre de votre critique";
+        }
 
-                                    //si les données sont valides
+        if (empty($critic)){
+            $error = "veuillez renseigner votre critique";
+        }
+            
+         /*   //date dans le futur ? 
+        if ($date < date("Y-m-d")){
+            $error = "blabla.";
+        }  */
+        
+            //téléphone ?
+            //nb de personne ?
+
+        //si les données sont valides
         if ($error == ""){
             //ajout dans la bdd
             /*
@@ -42,20 +44,27 @@
             */
             $sql = "INSERT INTO review 
                     VALUES (NULL, :title, :username, 
-                    :critic, NOW())";
+                    :critic, NOW(),:idMovie)";
 
             $stmt = $dbh->prepare($sql);
             $stmt -> execute([
                 ":title" => $title,
                 ":username" => $name, 
                 ":critic" =>$critic,
-    
+                ":idMovie" => $idMovie,
             ]);
 
             //afficher un message de succès
             //redirige
-            header("Location: https://lingscars.com");
+            //header("Location: https://lingscars.com");
         }}
+
+$sql = "SELECT * FROM review
+        WHERE idMovie = :idMovie";
+$stmt = $dbh -> prepare($sql);
+$stmt -> execute([":idMovie" => $idMovie]);
+$critics = $stmt -> FetchAll();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,20 +74,41 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Réservation</title>
 </head>
+
 <body>
     <!-- afficher le formulaire --> 
     <form method="post" class="post_critique">
 
-        <label>Votre username</label>
-        <input type="username" name="Pseudo">
+        <label>Votre pseudo</label>
+        <input type="username" name="username" value=
+        
+        <?php  
+        if(isset($_SESSION['isConnected'])){
+            echo $_SESSION['pseudo'];
+        }
+        ?>>
 
         <label>Titre de votre critique</label>
         <input type="text" name="title">
 <br/>
         <label>Votre critique</label>
-        <input type="text" name="critique">
-
-        <button>Envoyer ma réservation</button>
+        <textarea type="text" name="critic"></textarea>
+<br/>
+        <button class="btn btn-primary">Poster ma critique</button>
     </form>
+
+<?php foreach ($critics as $critic){
+    echo '<div class="card">';
+    echo '<div class="card-header">[#'.$critic["id"].']    '.$critic["title"].'</div>';
+    echo '<div class="card-body">
+    <blockquote class="blockquote mb-0">
+    <p>'.$critic["critic"].'</p>
+    <span class="blockquote-footer">'.$critic["username"].'    ('. $critic['dateCreate'].')</span></blockquote>';
+    echo '</div>';
+    echo '</div>';
+}
+?>
+
+
 </body>
 </html>
