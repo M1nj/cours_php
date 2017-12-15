@@ -60,22 +60,23 @@
     
         <?php include('../layer/header.php');?>
 
-        <form class="form" method="post" action="login.php">
-
-        <div class="formLogin">
-            <label>Pseudo</label></br>
-            <input type="username" name="pseudo">
-            </br>
-
-            <label class="mdpLogin">Mot de passe</label></br>
-            <input type="password" name="password" />
-
-            <div class="boutonForm2">
-                <button>Je me connecte !</button>
+    <form class="form login" method="post" action="login.php">
+        <div class="row"> 
+            <div class="form-group mx-sm-3">
+                <label>Pseudo</label>
+                <input type="username" class="form-control" name="pseudo" placeholder="Pseudo">
             </div>
         </div>
-
-        </form>
+        <div class="row"> 
+            <div class="form-group mx-sm-3">
+                <label>Mot de passe</label>
+                <input type="password" name="password" class="form-control" placeholder="Mot de passe">
+            </div>
+        </div>
+        <div class="row mx-sm-3">
+            <button type="submit" class="btn btn-primary">Je me connecte</button>
+        </div>
+    </form>
                 
         <?php include'../layer/footer.php';?>
     </body>

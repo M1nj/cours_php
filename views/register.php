@@ -130,24 +130,35 @@
     <body>
         <?php include('../layer/header.php');?>
 
-        <!-- afficher le formulaire --> 
-        <form class="form" method="post" action="register.php">
-
-        <label>Pseudo</label>
-        <input type="username" name="pseudo">
-
-        <label>Email</label>
-        <input type="email" name="email">
-
-        <label>Mot de passe</label>
-        <input type="password" name="password" />
-
-        <label>Confirmation mot de passe</label>
-        <input type="password" name="confirm_password" />
-
-        <div class="boutonForm">
-            <button>Je m'inscris !</button>
-        </div>
+        <form class="form register" method="post" action="register.php">
+            <div class="row"> 
+                <div class="form-group col-12">
+                    <label>Pseudo</label>
+                    <input type="username" class="form-control" name="pseudo" placeholder="Pseudo">
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="form-group col-12">
+                    <label>Adresse email</label>
+                    <input type="email" class="form-control" name="email" placeholder="adresse@exemple.com">
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="form-group col-12">
+                    <label >Mot de passe</label>
+                    <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="form-group col-12">
+                    <label >Confirmation du mot de passe</label>
+                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirmation du mdp">
+                </div>
+            </div>
+            <div class="row col-12">
+                <button type="submit" class="btn btn-primary">Je m'inscris !</button>
+            </div>
+        </form>
 <?php echo $error ?>
     </form>
 

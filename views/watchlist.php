@@ -49,9 +49,9 @@
 			foreach ($movies as $movie){
 				echo
 			'<li class="test">
-				<a href="views/detail.php?id='.$movie["id"].'">
+				<a href="detail.php?id='.$movie["id"].'">
 					<img src="../img/posters/' .$movie["imdbId"].'.jpg" class="img-poster" alt="'.$movie["title"].'">
-					<div class="filmName"><p> '.$movie["title"];' </p></div>
+					<div class="filmName"><p> '.$movie["title"].' </p></div>
 				</a>   
 			</li>';}
 			}

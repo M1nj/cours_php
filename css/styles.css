@@ -40,6 +40,15 @@
     background-size: 150px auto;
 }
 
+div.card{
+    color:black;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+
 @media (max-width: 991px)
 {
     .navbar-brand {
@@ -49,13 +58,7 @@
     }
 }
 
-.navbar-brand:hover {
-    background-image: url('../img/logo2.png');
-    background-size: 200px auto;
-    background-repeat: no-repeat;
-    width: 50%;
-    padding-bottom: 5%;
-}
+
 
 .navbar-light .navbar-nav .nav-link {
     color: white;
@@ -84,6 +87,26 @@
     display: flex;
     justify-content: flex-end;
 
+}
+
+.form.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+.form.register{
+    display: flex;
+    flex-direction: column;
+    margin: 50px 40%;
+}
+
+.form.review{
+    display: flex;
+    flex-direction: column;
+    margin: 50px 20%;
 }
 
 .navbar-toggler {
@@ -207,6 +230,9 @@ body {
     margin: 20px 50px 20px 50px;
     color: white;
 }
+.watchlist{
+    margin-left: 20px;
+}
 
 .movie{
     display: flex;
@@ -228,11 +254,6 @@ body {
 .realisateur-note{
     flex-direction: row;
     display: flex;
-}
-
-.whatchlist{
-    margin-left: 20px;
-    text-align: center;
 }
 
 iframe{
@@ -602,9 +623,7 @@ textarea {
     width: 40%;
     height: 150px;
   }
-button.btn.btn-primary{
-    margin-left: 10.3%;
-}
+
 img.nitflex{
     width: 7%;
     height: auto;
