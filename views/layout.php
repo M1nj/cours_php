@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="../css/styles.css" >
         <link rel="stylesheet" href="../css/fleche.scss" >
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        
+        <link rel="icon" type="image/png" href="../img/allocine.ico" />
     </head>
     
     <body>

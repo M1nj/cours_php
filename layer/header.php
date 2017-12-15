@@ -15,7 +15,7 @@
             <a class="nav-link" href="../index.php">Accueil <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Rating</a>
+            <a class="nav-link" href="#"></a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -56,7 +56,7 @@
         </ul>
 
         <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un film" method="GET" name="search" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Nemo, Guillaume Sylvestre..." method="GET" name="search" aria-label="Search" size="30">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
         </form>
     </div>
