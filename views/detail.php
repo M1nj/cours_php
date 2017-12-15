@@ -78,15 +78,16 @@
                         <?php 
                         if(!empty($_SESSION)){
                             $id = $_GET['id']; //on récupère l'ID dans l'URL
-                            $userid=$_SESSION['id'];
-
-                           
-
+                            $userid = $_SESSION['id'];
+                            
                             $sql = "SELECT * FROM watchlist
                                     WHERE movie = :id AND user= :userid"; //utiliser les deux points lorsque les données peuvent être manipulées par l'utilisateur.
                 
                             $stmt = $dbh -> prepare($sql);
-                            $stmt -> execute([":id" => $id, ":userid" => $userid]); //on la remplace ensuite dans $id.
+                            $stmt -> execute([
+                                ":id" => $id,
+                                 ":userid" => $userid
+                                 ]); //on la remplace ensuite dans $id.
                             $watchlist = $stmt -> fetch();
                 
                             if (empty($watchlist)){
@@ -99,9 +100,10 @@
                                     $stmt = $dbh->prepare($sql);
                                     $stmt -> execute([
                                         ":id" =>  $id,
-                                        ":userid" =>   $userid, 
+                                        ":userid" => $userid, 
                                     ]);
                                 }
+                                
                             else{
                                 echo'<div class="whatchlist">
                                         <button class="btn btn-primary">Retirer de la Watchlist</button>

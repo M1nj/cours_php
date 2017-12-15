@@ -21,6 +21,8 @@
         $stmt -> execute([":pseudo" => $pseudo, ":password" => $password,]);
 
         $resultat = $stmt->fetch();
+
+       
         
         if (!$resultat)
         {
@@ -32,9 +34,12 @@
             $_SESSION['password'] = $password;
             $_SESSION['id'] = $resultat['id'];
             $_SESSION["isConnected"]= true;
-            echo header("Location: ../index.php");
+
+            header("Location: ../index.php");
         }
     }
+
+
 
 ?>
 
