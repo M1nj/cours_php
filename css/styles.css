@@ -30,20 +30,31 @@
     background-image: url('../img/logo.png');
     background-repeat: no-repeat;
     margin-left: 50px;
-    background-size: 100%;
+    background-size: 150px auto;
 }
 
-@media (max-width: 1000px)
+.navbar-brand:hover {
+    background-image: url('../img/logo2.png');
+    background-repeat: no-repeat;
+    margin-left: 50px;
+    background-size: 150px auto;
+}
+
+@media (max-width: 991px)
 {
     .navbar-brand {
         background-size: 200px auto;
+        width: 50%;
+        padding-bottom: 5%;
     }
 }
 
 .navbar-brand:hover {
     background-image: url('../img/logo2.png');
-    background-size: 100%;
+    background-size: 200px auto;
     background-repeat: no-repeat;
+    width: 50%;
+    padding-bottom: 5%;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -57,7 +68,6 @@
 .navbar-light .navbar-nav .nav-link:active {
     color: #ffe484;
 }
-
 
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
     color: white;
