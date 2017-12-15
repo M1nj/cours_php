@@ -96,8 +96,9 @@
                     ":password" => $password, 
                     ":confirm_password" =>$confirm_password,
                     ":email" =>$email,
-        
                 ]);
+                $_SESSION["isConnected"]= true;
+                echo header("Location: ../index.php");
     
                 //afficher un message de succès
                 //redirige
