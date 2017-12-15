@@ -30,6 +30,7 @@
         {
             $_SESSION['pseudo'] = $pseudo;
             $_SESSION['password'] = $password;
+            $_SESSION['id'] = $resultat['id'];
             $_SESSION["isConnected"]= true;
             echo header("Location: ../index.php");
         }

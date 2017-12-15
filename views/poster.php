@@ -3,12 +3,8 @@
     session_start();
 ?>
 
-
-
 <ul class="posters">
-
 <?php
-
 //Association de la base de données
 $sql = "SELECT imdbId, id, title FROM movie_simple 
         ORDER BY RAND() LIMIT 50";
@@ -27,7 +23,6 @@ foreach ($movies as $movie){
     </li>';
     }
 ?>
-
 </ul>
 
 <div class="autresfilms">
