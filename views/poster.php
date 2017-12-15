@@ -1,5 +1,5 @@
 <?php 
-    $title = "Movies !";
+    $title = "Allocinoche";
     session_start();
 ?>
 
