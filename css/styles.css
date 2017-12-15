@@ -51,10 +51,8 @@
 
 .navbar-brand:hover {
     background-image: url('../img/logo2.png');
-    background-size: 200px auto;
+    background-size: 150px auto;
     background-repeat: no-repeat;
-    width: 50%;
-    padding-bottom: 5%;
 }
 
 .navbar-light .navbar-nav .nav-link {
