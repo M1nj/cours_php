@@ -77,14 +77,14 @@ $critics = $stmt -> FetchAll();
 
 <body>
     <!-- afficher le formulaire --> 
-    <form method="post">
+    <form method="post" class="post_critique">
 
         <label>Votre username</label>
         <input type="username" name="username">
 
         <label>Titre de votre critique</label>
         <input type="text" name="title">
-
+<br/>
         <label>Votre critique</label>
         <input type="text" name="critic" size="80">
 
