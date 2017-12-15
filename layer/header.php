@@ -39,7 +39,19 @@
             <a class="nav-link" href="../views/register.php">Inscription <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../views/login.php">Connexion <span class="sr-only">(current)</span></a>
+            
+            
+            <?php 
+
+            if(!empty($_SESSION["isConnected"]) && $_SESSION["isConnected"] == 'true' ) {
+                echo '<a class="nav-link" href="../views/logout.php">Déconnexion</a>';
+            }else{
+                echo '<a class="nav-link" href="../views/login.php">Connexion</a>';
+            }
+
+            ?>
+            
+            
         </li>
         </ul>
 

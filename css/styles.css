@@ -1,12 +1,24 @@
+/*navbar + logo*/
+
 .navbar {
     width: 100%;
     height: 80px;
 }
 
 .navbar.navbar-expand-lg.navbar-light.bg-light {
-    background-color: #495057 !important;
+    background-color: #fecc00 !important;
     padding: 0;
     margin: 0;
+}
+
+.btn-primary{
+    background-color: #fecc00;
+    border-color: #fecc00;
+}
+
+.btn-primary:hover{
+    background-color: #ffe684;
+    border-color: #ffe684;
 }
 
 .navbar-brand {
@@ -39,11 +51,11 @@
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-    color: #ff715a;
+    color: #ffe684;
 }
 
 .navbar-light .navbar-nav .nav-link:active {
-    color: #ff715a;
+    color: #ffe484;
 }
 
 
@@ -70,8 +82,8 @@
 
 .btn.btn-outline-success.my-2.my-sm-0:hover{
     color: white;
-    background-color: #FF715A;
-    border-color: #FF715A;
+    background-color: #ffe684;
+    border-color: #ffe684;
 }
 
 .posters{
@@ -140,11 +152,13 @@ li{
 }
 
 footer {
-    background-color: #495057;
+    background-color: #272727;
     width: 100%;
     height: 150px;
     text-align: center;
     padding-top: 20px;
+    box-shadow: 1px -1px 12px #fecc00;
+    
 }
 
 footer .card-title {
@@ -174,6 +188,7 @@ h1{
 
 body {
     background-color: #272727;
+    color: white;
 }
 
 .details-movie{
@@ -491,4 +506,65 @@ div.liste_genre > a{
     margin-bottom: 10px;
     background-color: lightgrey;
     color: black;
+}
+
+/*Formulaire login*/
+.formLogin {
+    color: white;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    /*background: #393F45;*/
+}
+
+.mdpLogin {
+    padding-top: 20px;
+}
+
+.boutonForm2 {
+    padding-top: 20px;
+}
+
+
+div.accueil{
+    width: 100%;
+    height: 875px;
+    margin-right: 0px;
+    margin-left: 0px;
+    overflow: hidden;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+div.accueil > img{
+    width:100%;
+    height: auto;
+    
+}
+.form-control.mr-sm-2:focus{
+box-shadow: 0 0 0 0.2rem #ffe48469;
+border: 1px solid #ffe484;
+}
+.btn-primary:not([disabled]):not(.disabled).active, .btn-primary:not([disabled]):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+    background-color:#fecc00;
+    color: black;
+}
+
+h4.card-title{
+    color:#fecc00;
+}
+iframe{
+    flex-direction: column;
+}
+form.post_critique{
+    margin: 30px;
+}
+form.post_critique >label{
+    margin: 30px;
+}
+form.post_critique > input{
+    padding-right: 30px;
 }
