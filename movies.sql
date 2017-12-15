@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.3
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 11 déc. 2017 à 08:14
--- Version du serveur :  5.7.19
--- Version de PHP :  7.1.9
+-- Hôte : localhost:8889
+-- Généré le :  ven. 15 déc. 2017 à 15:51
+-- Version du serveur :  5.6.35
+-- Version de PHP :  7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,12 +26,10 @@ SET time_zone = "+00:00";
 -- Structure de la table `genre`
 --
 
-DROP TABLE IF EXISTS `genre`;
-CREATE TABLE IF NOT EXISTS `genre` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `genre` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `genre`
@@ -68,9 +64,8 @@ INSERT INTO `genre` (`id`, `name`) VALUES
 -- Structure de la table `movie`
 --
 
-DROP TABLE IF EXISTS `movie`;
-CREATE TABLE IF NOT EXISTS `movie` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `movie` (
+  `id` int(11) NOT NULL,
   `imdbId` varchar(20) CHARACTER SET utf8 NOT NULL,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   `year` int(4) NOT NULL,
@@ -80,10 +75,8 @@ CREATE TABLE IF NOT EXISTS `movie` (
   `runtime` int(3) NOT NULL,
   `trailerId` varchar(100) CHARACTER SET utf8 DEFAULT NULL COMMENT 'YouTube Video ID',
   `dateCreated` datetime NOT NULL,
-  `dateModified` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `imdb_id` (`imdbId`)
-) ENGINE=InnoDB AUTO_INCREMENT=10000023 DEFAULT CHARSET=utf8mb4;
+  `dateModified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `movie`
@@ -901,12 +894,9 @@ INSERT INTO `movie` (`id`, `imdbId`, `title`, `year`, `plot`, `rating`, `votes`,
 -- Structure de la table `movie_actor`
 --
 
-DROP TABLE IF EXISTS `movie_actor`;
-CREATE TABLE IF NOT EXISTS `movie_actor` (
+CREATE TABLE `movie_actor` (
   `movieId` int(11) NOT NULL,
-  `peopleId` int(11) NOT NULL,
-  PRIMARY KEY (`movieId`,`peopleId`),
-  KEY `movie_actor_peopleId` (`peopleId`)
+  `peopleId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -3321,12 +3311,9 @@ INSERT INTO `movie_actor` (`movieId`, `peopleId`) VALUES
 -- Structure de la table `movie_director`
 --
 
-DROP TABLE IF EXISTS `movie_director`;
-CREATE TABLE IF NOT EXISTS `movie_director` (
+CREATE TABLE `movie_director` (
   `movieId` int(11) NOT NULL,
-  `peopleId` int(11) NOT NULL,
-  PRIMARY KEY (`movieId`,`peopleId`),
-  KEY `movie_director_peopleId` (`peopleId`)
+  `peopleId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -4205,13 +4192,9 @@ INSERT INTO `movie_director` (`movieId`, `peopleId`) VALUES
 -- Structure de la table `movie_genre`
 --
 
-DROP TABLE IF EXISTS `movie_genre`;
-CREATE TABLE IF NOT EXISTS `movie_genre` (
+CREATE TABLE `movie_genre` (
   `movieId` int(11) NOT NULL,
-  `genreId` int(11) NOT NULL,
-  PRIMARY KEY (`movieId`,`genreId`),
-  KEY `movieId` (`movieId`),
-  KEY `genreId` (`genreId`)
+  `genreId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -6265,9 +6248,8 @@ INSERT INTO `movie_genre` (`movieId`, `genreId`) VALUES
 -- Structure de la table `movie_simple`
 --
 
-DROP TABLE IF EXISTS `movie_simple`;
-CREATE TABLE IF NOT EXISTS `movie_simple` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `movie_simple` (
+  `id` int(11) NOT NULL,
   `imdbId` varchar(20) CHARACTER SET utf8 NOT NULL,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   `year` int(4) NOT NULL,
@@ -6281,10 +6263,8 @@ CREATE TABLE IF NOT EXISTS `movie_simple` (
   `runtime` int(3) NOT NULL,
   `trailerId` varchar(100) CHARACTER SET utf8 DEFAULT NULL COMMENT 'YouTube Video ID',
   `dateCreated` datetime NOT NULL,
-  `dateModified` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `imdb_id` (`imdbId`)
-) ENGINE=InnoDB AUTO_INCREMENT=10000023 DEFAULT CHARSET=utf8mb4;
+  `dateModified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `movie_simple`
@@ -7104,12 +7084,9 @@ INSERT INTO `movie_simple` (`id`, `imdbId`, `title`, `year`, `genres`, `actors`,
 -- Structure de la table `movie_writer`
 --
 
-DROP TABLE IF EXISTS `movie_writer`;
-CREATE TABLE IF NOT EXISTS `movie_writer` (
+CREATE TABLE `movie_writer` (
   `movieId` int(11) NOT NULL,
-  `peopleId` int(11) NOT NULL,
-  PRIMARY KEY (`movieId`,`peopleId`),
-  KEY `movie_writer_peopleId` (`peopleId`)
+  `peopleId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -8476,14 +8453,11 @@ INSERT INTO `movie_writer` (`movieId`, `peopleId`) VALUES
 -- Structure de la table `people`
 --
 
-DROP TABLE IF EXISTS `people`;
-CREATE TABLE IF NOT EXISTS `people` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `people` (
+  `id` int(11) NOT NULL,
   `imdbId` varchar(9) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `imdbId` (`imdbId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2716 DEFAULT CHARSET=utf8mb4;
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `people`
@@ -11196,6 +11170,193 @@ INSERT INTO `people` (`id`, `imdbId`, `name`) VALUES
 (2714, 'nm0522554', 'Jim Lovell'),
 (2715, 'nm0460200', 'Jeffrey Kluger');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `review`
+--
+
+CREATE TABLE `review` (
+  `id` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `username` varchar(40) NOT NULL,
+  `critic` text NOT NULL,
+  `dateCreate` date NOT NULL,
+  `idMovie` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `review`
+--
+
+INSERT INTO `review` (`id`, `title`, `username`, `critic`, `dateCreate`, `idMovie`) VALUES
+(6, 'Test', 'Test', 'Test', '2017-12-13', 493),
+(7, 'Test', 'Test', 'Test', '2017-12-13', 699),
+(8, 'Test', 'Test', 'Test', '2017-12-15', 266),
+(9, 'Lorem Ipsum', 'Ben', 'Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.  Maecenas sed diam eget risus varius blandit sit amet non magna. Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.', '2017-12-15', 266),
+(10, 'Lorem Ipsum', 'Ben', 'Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.\r\n\r\nDuis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\r\n\r\nSed posuere consectetur est at lobortis. Donec sed odio dui. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.', '2017-12-15', 63),
+(11, 'Lorem Ipsum', 'Ben', 'Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Sed posuere consectetur est at lobortis. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo.\r\n\r\nInteger posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Cras mattis consectetur purus sit amet fermentum.', '2017-12-15', 21);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `pseudo` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `confirm_password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `date_inscription` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `pseudo`, `password`, `confirm_password`, `email`, `date_inscription`) VALUES
+(1, 'eee', 'eee', 'eee', 'ee@eee', '2017-12-13'),
+(2, 'dd', 'dd', 'dd', 'didier@gmail.com', '2017-12-13'),
+(3, 'dd', 'dd', 'dd', 'didier@gmail.com', '2017-12-13'),
+(4, 'dd', 'dd', 'dd', 'didier@gmail.com', '2017-12-13'),
+(5, 'kllk', 'jkjk', 'lklkmk', 'didier@gmail.com', '2017-12-13'),
+(6, 'Chris', 'juju', 'juju', 'christopher.benevent@gmail.com', '2017-12-13'),
+(7, 'Chris', 'djh', 'djh', 'juju@gmail.com', '2017-12-13'),
+(8, 'Ben', 'Ben', 'Ben', 'benjamincaillet14@gmail.com', '2017-12-15');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `watchlist`
+--
+
+CREATE TABLE `watchlist` (
+  `movie` int(11) NOT NULL,
+  `user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `watchlist`
+--
+
+INSERT INTO `watchlist` (`movie`, `user`) VALUES
+(10000007, 6),
+(361, 8),
+(184, 8),
+(140, 9),
+(699, 9),
+(262, 9),
+(171, 9),
+(738, 8);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `genre`
+--
+ALTER TABLE `genre`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `movie`
+--
+ALTER TABLE `movie`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `imdb_id` (`imdbId`);
+
+--
+-- Index pour la table `movie_actor`
+--
+ALTER TABLE `movie_actor`
+  ADD PRIMARY KEY (`movieId`,`peopleId`),
+  ADD KEY `movie_actor_peopleId` (`peopleId`);
+
+--
+-- Index pour la table `movie_director`
+--
+ALTER TABLE `movie_director`
+  ADD PRIMARY KEY (`movieId`,`peopleId`),
+  ADD KEY `movie_director_peopleId` (`peopleId`);
+
+--
+-- Index pour la table `movie_genre`
+--
+ALTER TABLE `movie_genre`
+  ADD PRIMARY KEY (`movieId`,`genreId`),
+  ADD KEY `movieId` (`movieId`),
+  ADD KEY `genreId` (`genreId`);
+
+--
+-- Index pour la table `movie_simple`
+--
+ALTER TABLE `movie_simple`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `imdb_id` (`imdbId`);
+
+--
+-- Index pour la table `movie_writer`
+--
+ALTER TABLE `movie_writer`
+  ADD PRIMARY KEY (`movieId`,`peopleId`),
+  ADD KEY `movie_writer_peopleId` (`peopleId`);
+
+--
+-- Index pour la table `people`
+--
+ALTER TABLE `people`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `imdbId` (`imdbId`);
+
+--
+-- Index pour la table `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `genre`
+--
+ALTER TABLE `genre`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT pour la table `movie`
+--
+ALTER TABLE `movie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000023;
+--
+-- AUTO_INCREMENT pour la table `movie_simple`
+--
+ALTER TABLE `movie_simple`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000023;
+--
+-- AUTO_INCREMENT pour la table `people`
+--
+ALTER TABLE `people`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2716;
+--
+-- AUTO_INCREMENT pour la table `review`
+--
+ALTER TABLE `review`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Contraintes pour les tables déchargées
 --
@@ -11227,7 +11388,6 @@ ALTER TABLE `movie_genre`
 ALTER TABLE `movie_writer`
   ADD CONSTRAINT `movie_writer_movieId` FOREIGN KEY (`movieId`) REFERENCES `movie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `movie_writer_peopleId` FOREIGN KEY (`peopleId`) REFERENCES `people` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
