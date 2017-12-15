@@ -1,5 +1,6 @@
 <?php
     $title='Détails du film';
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">

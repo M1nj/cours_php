@@ -1,6 +1,7 @@
 <?php
     include("../db.php");
     ini_set("display_errors",1);
+    session_start();
     
     $genre = $_GET['genre']; //on récupère l'ID dans l'URL
     

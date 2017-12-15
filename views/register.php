@@ -1,6 +1,6 @@
 <?php
     $title='Inscription';
-
+    session_start();
 
     ini_set("display_errors",1);
     include("../db.php");

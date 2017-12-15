@@ -1,5 +1,6 @@
 <?php 
     $title = "Movies !";
+    session_start();
 ?>
 
 
