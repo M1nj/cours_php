@@ -13,7 +13,11 @@
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="../views/watchlist.php">Watchlist</a>
+                <?php 
+                    if(!empty($_SESSION["isConnected"]) && $_SESSION["isConnected"] == 'true' ) {
+                        echo '<a class="nav-link" href="../views/watchlist.php">Watchlist</a>';
+                    }
+                ?> 
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../views/register.php">Inscription <span class="sr-only">(current)</span></a>
